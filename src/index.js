@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { render } from 'react-dom'
 
 import Playground from './components/Playground';
+import Happy from './components/Happy';
 
 /*
 💥💥💥 Rules when DECLARING a React component 💥💥💥
@@ -24,24 +25,27 @@ import Playground from './components/Playground';
 */
 
 function App(props) {
-  const { cohort, instructor, happy, week } = props;
+  const { cohort, instructor, week } = props;
+
+  const [happy, setHappy] = useState(false);
   // JSX (javascript templating agent)
   return (
     // const div = document.createElement('div);
     // div.classList.add('container');
     <div className='container'>
       <h1>Welcome to React, Web {cohort}</h1>
+      <Happy happy={happy} setHappy={setHappy}/>
       {happy ? <div>Very happy!</div> : <div>It must be Monday, eh?</div>}
       <div>It is week {week}</div>
       <input type="text" />
       <button>I'm a button!</button>
-      <Playground cohort={cohort} instructor={instructor}/>
+      <Playground cohort={cohort} instructor={instructor} happy={happy}/>
     </div>
   )
 }
 
 render(
   // App({cohort: 37})
-  <App cohort='46' instructor='Casey' happy={true} week={2}/>,
+  <App cohort='46' instructor='Casey' week={2}/>,
   document.querySelector('#root')
 )
