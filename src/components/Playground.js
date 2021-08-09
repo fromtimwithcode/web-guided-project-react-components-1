@@ -20,14 +20,17 @@ function Playground(props) {
     return (
       <div>
         <p>Loading, please wait!</p>
+        <button onClick={() => setSpinnerOn(!spinnerOn)}>Turn spinner off</button>
       </div>
     )
   }
 
   return (
     <div>
-      <h1>I'm working! I'm working!</h1>
+      <h1>Welcome to Web{props.cohort}</h1>
+      <p>Your instructor, {props.instructor}, welcomes you!</p>
       <button onClick={() => setCount(count + 1)}>Add one</button>
+      <button onClick={() => setCount(count - 1)}>Subtract one</button>
       <button onClick={() => setSpinnerOn(!spinnerOn)}>Toggle spinner...</button>
       <p>Count is: {count}</p>
     </div>
