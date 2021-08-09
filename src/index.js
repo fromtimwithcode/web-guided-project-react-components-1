@@ -22,17 +22,27 @@ import { render } from 'react-dom'
 */
 
 function App(props) {
+  const { cohort, instructor, happy, week } = props;
   // JSX (javascript templating agent)
   return (
     // const div = document.createElement('div);
     // div.classList.add('container');
     <div className='container'>
-      <h1>Welcome to React, Web {props.cohort}</h1>
+      <h1 id='mainHeading'>Welcome to React, web{cohort}</h1>
+      <p>{instructor} welcomes you!</p>
+      <div className='container'>
+        <h1>Welcome to React, Web {cohort}</h1>
+        {happy ? <div>Very happy!</div> : <div>It must be Monday, eh?</div>}
+        <div>It is week {week}</div>
+        <input type="text" />
+        <button>I'm a button!</button>
+      </div>
     </div>
   )
 }
 
 render(
-  <App cohort='37' />,
+  // App({cohort: 37})
+  <App cohort='46' instructor='Casey' happy={true} week={2}/>,
   document.querySelector('#root')
 )
