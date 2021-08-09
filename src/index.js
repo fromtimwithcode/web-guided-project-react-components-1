@@ -22,7 +22,10 @@ import { render } from 'react-dom'
 */
 
 function App(props) {
+  // JSX (javascript templating agent)
   return (
+    // const div = document.createElement('div);
+    // div.classList.add('container');
     <div className='container'>
       <h1>Welcome to React, Web {props.cohort}</h1>
     </div>
